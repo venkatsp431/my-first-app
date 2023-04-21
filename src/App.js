@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const properties = [
+    { nameM: "venki", position: "Web Designer" },
+    { nameM: "kiven", position: "softy engg" },
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {properties.map((value, index) => (
+        <Profile key={index} nameM={value.nameM} position={value.position} />
+      ))}
     </div>
   );
 }
 
 export default App;
+
+function Profile({ nameM, position }) {
+  return (
+    <div>
+      <h1>{nameM}</h1>
+      <h2>{position}</h2>
+    </div>
+  );
+}
